@@ -23,7 +23,6 @@
 version: '{build}'
 platform:
   - x86
-  - x64
 clone_depth: 50
 environment:
   GIT_NAME:
@@ -44,7 +43,6 @@ environment:
   URHO3D_D3D11: 1
   matrix:
     - URHO3D_LIB_TYPE: STATIC
-    - URHO3D_LIB_TYPE: SHARED
 install:
   - ps: if ($env:APPVEYOR_REPO_TAG -eq "true") { $env:RELEASE_TAG = $env:APPVEYOR_REPO_TAG_NAME };
         if ($env:RELEASE_TAG -or ($env:APPVEYOR_REPO_BRANCH -eq "master" -and (!$env:APPVEYOR_PULL_REQUEST_NUMBER -and (select-string '\[ci package\]' -inputobject $env:APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED))))
