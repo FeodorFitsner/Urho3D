@@ -44,8 +44,8 @@ environment:
   matrix:
     - URHO3D_LIB_TYPE: STATIC
 install:
-  - set PATH=C:\Program Files\Git\usr\bin;%PATH%
-  - where cp.exe
+#  - set PATH=C:\Program Files\Git\usr\bin;%PATH%
+#  - where cp.exe
   - ps: if ($env:APPVEYOR_REPO_TAG -eq "true") { $env:RELEASE_TAG = $env:APPVEYOR_REPO_TAG_NAME };
         if ($env:RELEASE_TAG -or ($env:APPVEYOR_REPO_BRANCH -eq "master" -and (!$env:APPVEYOR_PULL_REQUEST_NUMBER -and (select-string '\[ci package\]' -inputobject $env:APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED))))
         {
