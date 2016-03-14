@@ -19,7 +19,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 #
-image: Visual Studio 2015
+image: test
 version: '{build}'
 platform:
   - x86
@@ -45,7 +45,7 @@ environment:
     - URHO3D_LIB_TYPE: STATIC
 install:
 #  - set PATH=C:\Program Files\Git\usr\bin;%PATH%
-#  - where cp.exe
+  - where cp.exe
   - ps: if ($env:APPVEYOR_REPO_TAG -eq "true") { $env:RELEASE_TAG = $env:APPVEYOR_REPO_TAG_NAME };
         if ($env:RELEASE_TAG -or ($env:APPVEYOR_REPO_BRANCH -eq "master" -and (!$env:APPVEYOR_PULL_REQUEST_NUMBER -and (select-string '\[ci package\]' -inputobject $env:APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED))))
         {
